@@ -62,7 +62,13 @@ X_test, y_test = X[train_split:], y[train_split:]
 # In[5]:
 
 
-def plot_predictions(train_data=X_train, train_labels=y_train, test_data=X_test, test_labels=y_test, predictions=None):
+def plot_predictions(
+    train_data=X_train,
+    train_labels=y_train,
+    test_data=X_test,
+    test_labels=y_test,
+    predictions=None,
+):
     """
     Plots the training and the testing data and compares predicitons
     """
@@ -93,11 +99,11 @@ plot_predictions()
 
 
 class LinearRegression(nn.Module):
-
     def __init__(self) -> None:
         super().__init__()
-        self.weights = nn.Parameter(torch.randn(
-            1, requires_grad=True, dtype=torch.float))
+        self.weights = nn.Parameter(
+            torch.randn(1, requires_grad=True, dtype=torch.float)
+        )
         self.bias = nn.Parameter(torch.randn(
             1, requires_grad=True, dtype=torch.float))
 
@@ -226,8 +232,9 @@ plot_predictions(predictions=final_predictions)
 
 # Plotting the loss curve
 
-plt.plot(epoch_count, np.array(torch.tensor(
-    (loss_vals)).numpy()), label="Training Loss")
+plt.plot(
+    epoch_count, np.array(torch.tensor((loss_vals)).numpy()), label="Training Loss"
+)
 plt.plot(epoch_count, test_loss_vals, label="Testing Loss")
 plt.title("Training and Testing Loss curves")
 plt.ylabel("Loss")
@@ -241,40 +248,3 @@ plt.legend()
 # Saving the model
 filepath = "../model/model.pth"
 torch.save(model, filepath)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

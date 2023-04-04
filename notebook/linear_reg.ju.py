@@ -229,10 +229,3 @@ plt.legend()
 # Saving the model
 filepath = "../model/model.pth"
 torch.save(model, filepath)
-
-# %%
-# %%
-# %%
-# %%
-# %%
-# %%
